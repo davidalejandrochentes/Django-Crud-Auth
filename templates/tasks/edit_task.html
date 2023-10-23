@@ -1,0 +1,36 @@
+{% extends "layout/base.html" %}
+
+{% block 'title'%} Edit Task {% endblock %}
+
+{% block 'styles' %}
+{% load static %}
+<link rel="stylesheet" href="{% static "forms.css" %}">
+{% endblock %}
+
+{% block 'content' %}
+<div class="container mt-5">
+
+    <div class="d-flex justify-content-center align-items-center">
+        <form  class="mt-1 p-5 rounded-3 shadow-lg bg-body-tertiary" actions="" method="POST">
+         {% csrf_token %}
+   
+         {% if messages %}
+         <ul class="messages">
+             {% for message in messages %}
+                 <div {% if message.tags %} class="alert alert-primary alerta text-center" role="alert"{% endif %}>{{ message }}</div>
+             {% endfor %}
+         </ul>
+         {% endif %}
+       
+           {{form.as_p}}
+   
+           <div class="d-grid gap-2">
+               <input class="btn btn-primary" type="submit" value="Submit">
+               <a href="{% url "tasks" %}" class="btn btn-secondary mt-2">Back</a>
+           </div>
+   
+        </form>
+       </div>
+
+</div>
+{% endblock %}

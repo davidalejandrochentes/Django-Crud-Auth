@@ -1,0 +1,30 @@
+{% extends "layout/base.html" %}
+
+{% block 'title'%} Detail Task {% endblock %}
+
+{% block 'content' %}
+<div class="container mt-5">
+
+    <h1 class="text-center">{{task.title}}</h1>
+
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"><b>Description: </b>{{task.description}}</li>
+        <li class="list-group-item"><b>Created: </b>{{task.created}}</li>
+        <li class="list-group-item"><b>important: </b>{{task.important}}</li>
+        <li class="list-group-item"><b>Created: </b>{{task.created}}</li>
+        <li class="list-group-item"><b>Completed: </b>{{task.datecompleted}}</li>
+      </ul>
+
+      <div class="d-flex justify-content-center align-items-center">
+
+        <a href="{% url "tasks" %}" class="btn btn-secondary m-2">Back</a>
+        
+        <form action="{% url "completed_tasks" id=task.id %}" method="POST">
+          {% csrf_token %}
+          <button class="btn btn-warning text-white" type="submit">Completed</button>
+        </form>  
+
+      </div> 
+
+</div>
+{% endblock %}

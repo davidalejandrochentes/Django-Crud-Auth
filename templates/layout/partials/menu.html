@@ -1,0 +1,25 @@
+<ul class="nav justify-content-center p-3 shadow bg-body-tertiary text-uppercase fw-bold">
+    <li class="nav-item">
+      <a class="nav-link text-black b-2" href="{% url "home" %}">home</a>
+    </li>
+
+    {% if user.is_authenticated %}
+      <li class="nav-item">
+        <a class="nav-link text-black b-2" href="{% url "tasks" %}">pending tasks</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-black b-2" href="{% url "tasks_completed" %}">completed tasks</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-black b-2" href="{% url "logout" %}">logout</a>
+      </li>
+    {% else %} 
+      <li class="nav-item">
+        <a class="nav-link text-black b-2" href="{% url "login" %}">Login</a>
+      </li> 
+      <li class="nav-item">
+        <a class="nav-link text-black b-2" href="{% url "singup" %}">singup</a>
+      </li> 
+    {% endif %}
+    
+  </ul>
