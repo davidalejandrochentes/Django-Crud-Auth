@@ -16,9 +16,12 @@ def home(request):
 
 @login_required
 def tasks(request):
-    tasks = Task.objects.filter(user=request.user, datecompleted__isnull=True).order_by('-created')
-    quantity = len(tasks)
-    return render(request, 'tasks/tasks.html', {'tasks': tasks, 'quantity': quantity})
+    tasks = Task.objects.filter(user=request.user, datecompleted__isnull=True,title__contains=request.GET.get('search', '')).order_by('-created')
+    context = {
+        'quantity': len(tasks),
+        'tasks': tasks
+    }
+    return render(request, 'tasks/tasks.html', context)
 
 @login_required
 def tasks_completed(request):
