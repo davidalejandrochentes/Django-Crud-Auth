@@ -14,5 +14,5 @@ class Task(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        txt = "{} (User: {}, created:{})"
-        return txt.format(self.title, self.user, self.created)
+        txt = "(Titulo:{}) (Usuario: {}, Creada: {}, Completada: {})"
+        return txt.format(self.title, self.user, self.created, self.datecompleted)

@@ -11,7 +11,7 @@
 {% block 'content' %}
 <div class="container mt-5">
 
-     <h1 class="text-center">Sing Up</h1>
+     <h1 class="text-center">Cree su Cuenta</h1>
      
      <div class="d-flex justify-content-center align-items-center">
      <form  class="mt-1 p-5 rounded-3 shadow-lg bg-body-tertiary" actions="{% url "singup" %}" method="POST">
@@ -24,8 +24,8 @@
         </ul>
     {% endif %}
     {{form.as_p}}
-    <input class="btn btn-primary" type="submit" value="Submit">
-    <p class="text-center mt-2 mb-0"><a href="{% url "login" %}">I already have an account</a></p>
+    <input class="btn btn-primary" type="submit" value="Verificar">
+    <p class="text-center mt-2 mb-0"><a href="{% url "login" %}">Ya tengo una cuenta</a></p>
      </form>
     </div>
 

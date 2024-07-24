@@ -1,6 +1,6 @@
 {% extends "layout/base.html" %}
 
-{% block 'title'%} Edit Task {% endblock %}
+{% block 'title'%} Editar Tarea {% endblock %}
 
 {% block 'styles' %}
 {% load static %}
@@ -9,6 +9,8 @@
 
 {% block 'content' %}
 <div class="container mt-5">
+
+    <h1 class="text-center">Editar Tarea</h1>
 
     <div class="d-flex justify-content-center align-items-center">
         <form  class="mt-1 p-5 rounded-3 shadow-lg bg-body-tertiary" actions="" method="POST">
@@ -25,8 +27,8 @@
            {{form.as_p}}
    
            <div class="d-grid gap-2">
-               <input class="btn btn-primary" type="submit" value="Submit">
-               <a href="{% url "tasks" %}" class="btn btn-secondary mt-2">Back</a>
+               <input class="btn btn-primary" type="submit" value="Editar">
+               <a href="{% url "tasks" %}" class="btn btn-secondary mt-2">Regresar</a>
            </div>
    
         </form>

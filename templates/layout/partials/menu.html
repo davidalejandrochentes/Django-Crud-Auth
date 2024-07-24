@@ -5,20 +5,20 @@
 
     {% if user.is_authenticated %}
       <li class="nav-item">
-        <a class="nav-link text-black b-2" href="{% url "tasks" %}">pending tasks</a>
+        <a class="nav-link text-black b-2" href="{% url "tasks" %}">Tareas-Pendientes</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-black b-2" href="{% url "tasks_completed" %}">completed tasks</a>
+        <a class="nav-link text-black b-2" href="{% url "tasks_completed" %}">Tareas-Completadas</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-black b-2" href="{% url "logout" %}">logout</a>
+        <a class="nav-link text-black b-2" href="{% url "logout" %}">Salir</a>
       </li>
     {% else %} 
       <li class="nav-item">
-        <a class="nav-link text-black b-2" href="{% url "login" %}">Login</a>
+        <a class="nav-link text-black b-2" href="{% url "login" %}">Entrar</a>
       </li> 
       <li class="nav-item">
-        <a class="nav-link text-black b-2" href="{% url "singup" %}">singup</a>
+        <a class="nav-link text-black b-2" href="{% url "singup" %}">Crear-Suenta</a>
       </li> 
     {% endif %}
     

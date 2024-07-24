@@ -19,7 +19,8 @@ def tasks(request):
     tasks = Task.objects.filter(user=request.user, datecompleted__isnull=True,title__contains=request.GET.get('search', '')).order_by('-created')
     context = {
         'quantity': len(tasks),
-        'tasks': tasks
+        'pagina': "pendientes",
+        'tasks': tasks,
     }
     return render(request, 'tasks/tasks.html', context)
 
@@ -27,7 +28,12 @@ def tasks(request):
 def tasks_completed(request):
     tasks = Task.objects.filter(user=request.user, datecompleted__isnull=False).order_by('-created')
     quantity = len(tasks)
-    return render(request, 'tasks/tasks.html', {'tasks': tasks, 'quantity': quantity})
+    context = {
+        'quantity': len(tasks),
+        'pagina': "completadas",
+        'tasks': tasks,
+    }
+    return render(request, 'tasks/tasks.html', context)
 
 @login_required
 def create_tasks(request):
