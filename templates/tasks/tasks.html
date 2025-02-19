@@ -27,7 +27,27 @@
             <div class="mt-auto mb-auto">
               <a class="btn btn-success btn-sm" href="{% url "view_tasks" id=task.id %}" role="button">Ver</a>
               <a class="btn btn-primary btn-sm" href="{% url "edit_tasks" id=task.id %}" role="button">Editar</a>
-              <a class="btn btn-danger btn-sm" href="{% url "delete_tasks" id=task.id %}" role="button">Eliminar</a>
+              <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modal-eliminar{{ task.id }}">
+                Eliminar
+              </button>
+              <div class="modal fade" id="modal-eliminar{{ task.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                      <div class="modal-content">
+                      <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="exampleModalLabel">Atención</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                          Esta seguro de <b>eliminar</b> esta tarea</b>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                          <a class="btn btn-danger" href="{% url "delete_tasks" id=task.id %}">Estoy seguro</a>
+                      </div>
+                      </div>
+                  </div>
+              </div>
+
             </div>
           </li>
         {% endfor %}
